@@ -1,0 +1,106 @@
+@import url("https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Shantell+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Figtree", sans-serif;
+}
+
+:root {
+  --transparent-primary: hsl(331, 100%, 65%, 25%);
+  --primary-pink: hsl(331, 100%, 65%);
+  --secondary-cyan: hsl(179, 86%, 58%);
+  --white: hsl(0, 0%, 100%);
+  --whiteish: hsl(30, 32%, 95%);
+  --whiteish-hover: hsl(30, 20%, 90%);
+  --outline: hsl(0, 0%, 34%);
+  --stickie-color-1: hsl(46, 100%, 77%);
+  --stickie-color-1-shadow: hsl(46, 51%, 67%);
+  --stickie-color-2: hsl(214, 100%, 77%);
+  --stickie-color-2-shadow: hsl(214, 73%, 63%);
+}
+
+body {
+  background: var(--white);
+  overflow: hidden;
+}
+
+.other-font {
+  font-family: "Shantell Sans";
+}
+
+.canvas-wrapper {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  /* border: 2px solid black; */
+}
+
+.canvas {
+  touch-action: none;
+  /* border: 2px solid #000; */
+}
+
+.toolbar {
+  display: flex;
+  flex-direction: row;
+
+  /* 1. CRITICAL FIXED HEIGHT & LINE-HEIGHT FIX */
+  height: 4rem; /* Changed from max-content to a fixed height */
+  line-height: 0; /* Kills invisible font baseline spacing pushing items up */
+  align-items: center; /* Forces the entire group to dead center vertically */
+  justify-content: center; /* Forces the entire group to dead center horizontally */
+
+  width: max-content;
+  position: fixed;
+  z-index: 999;
+  bottom: 0;
+  margin-bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 3px solid var(--outline);
+
+  /* 2. BALANCED PADDING */
+  padding: 0 0.75rem; /* Removed top/bottom padding to let flex handle vertical centering */
+  gap: 0.75rem;
+  border-radius: 20px;
+  background: var(--whiteish);
+}
+
+.toolbar .toolbar-icon-container .toolbar-icon {
+  width: 2rem;
+  height: 2rem;
+  padding: 0.5rem;
+  border-radius: 12px;
+  /* background: #ff8; */
+  cursor: pointer;
+  transition: 200ms cubic-bezier(1, 0, 0, 1);
+}
+.toolbar .toolbar-icon-container .toolbar-icon:hover {
+  background: var(--whiteish-hover);
+}
+.toolbar .toolbar-icon-container .toolbar-icon.active {
+  background: var(--transparent-primary);
+}
+
+.stickie {
+  padding: 1rem;
+  max-width: 7.5rem;
+  /* max-width: max-content; */
+  height: 7.5rem;
+  display: flex;
+  font-size: 1.15rem;
+  align-items: center;
+  outline: none;
+  word-break: break-word;
+  justify-content: center;
+  background: var(--stickie-color-1);
+  rotate: 1deg;
+  border: 3px solid var(--outline);
+  font-family: "Shantell Sans";
+  box-shadow: 8px 8px 0px var(--stickie-color-1-shadow);
+}
