@@ -1,5 +1,3 @@
-import React from "react";
-
 const stickieslayer = () => {
   return <div></div>;
 };
