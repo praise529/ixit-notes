@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import "./App.css";
 import DrawingCanvas from "./components/drawingcanvas";
 import { ToolBar } from "./components/ToolBar";
-
 export type tooltypes =
   | "pencil"
   | "eraser"
